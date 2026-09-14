@@ -56,7 +56,7 @@ Running `docker-compose up` will use the environment variables specified in the 
 
 * `COLLECTION_URI`: The URI of a Databus Collection. If you want to load the DBpedia Dataset it is recommended to use a [Snapshot Collection (2022-03)](https://databus.dbpedia.org/dbpedia/collections/dbpedia-snapshot-2022-03). This variable is kept for backward compatibility.
 
-* `DATABUS_URI`: Optional additional Databus URI to download. This can be a Databus file, version, artifact, group, or collection supported by `databusclient download`. If both `COLLECTION_URI` and `DATABUS_URI` are set, both are handed to the download client.
+* `DATABUS_URI`: Optional additional Databus URI to download. This can be a Databus file, version, artifact, group, or collection. If both `COLLECTION_URI` and `DATABUS_URI` are set, both are handed to the download client.
 
 * `DATA_DIR`: The directory containing the loaded data. The download container will download files below this directory using the Databus path layout (`account/group/artifact/version/file`). You can also copy files into the directory manually.
 
@@ -93,7 +93,7 @@ This project uses the DBpedia Databus Python Client. You can find the documentat
 
 * `COLLECTION_URI`: Backward-compatible Databus Collection URI.
 * `DATABUS_URI`: Optional additional Databus URI. Set this when you want to download something other than, or in addition to, a collection.
-* `SPARQL_ENDPOINT`: The Databus SPARQL endpoint used to resolve collections and queries.
+* `SPARQL_ENDPOINT`: The Databus SPARQL endpoint used to resolve collections.
 * `GRAPH_MODE`: Defaults to `download-url`. The download client writes `<file>.graph` sidecars containing the original download URL; these files are used by the Virtuoso loading process.
 
 The Python client stores files in a nested Databus layout below `DATA_DIR`. The loader registers files recursively with Virtuoso, so this layout does not need to be flattened. Keeping the hierarchy avoids filename collisions when different artifacts or versions contain files with the same basename.

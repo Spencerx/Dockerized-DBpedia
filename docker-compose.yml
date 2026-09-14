@@ -7,7 +7,7 @@ services:
       COLLECTION_URI: ${COLLECTION_URI}
       DATABUS_URI: ${DATABUS_URI}
       SPARQL_ENDPOINT: ${SPARQL_ENDPOINT}
-      GRAPH_MODE: ${GRAPH_MODE}
+      GRAPH_MODE: ${GRAPH_MODE:-download-url}
     volumes:
       - ${DATA_DIR}:/root/data
     entrypoint:
